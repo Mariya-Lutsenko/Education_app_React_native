@@ -3,6 +3,7 @@
     "name": "kharkiv-lyceum-140",
     "slug": "kharkiv-lyceum-140",
     "version": "1.0.0",
+    "scheme": "kharkiv-lyceum-140",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -19,10 +20,18 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kharkiv.liceum140",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d12c27c6-d439-4f33-aa4e-ae95efa3a528"
+      }
     }
   }
 }
+//797420240512-up70g52d0r54rh9hehm5k4ttc4bsslos.apps.googleusercontent.com
