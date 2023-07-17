@@ -1,16 +1,18 @@
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
+import * as WebBrowser from "expo-web-browser";
+import * as Google from "expo-auth-session/providers/google";
+import { AuthContext } from "../Context/AuthContext";
+import Services from "../Shared/Services";
 import Colors from "../Shared/Colors";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import * as WebBrowser from "expo-web-browser";
-import * as Google from "expo-auth-session/providers/google";
 
 export default function Login() {
   WebBrowser.maybeCompleteAuthSession();
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState();
-  // const { userData, setUserData } = useContext(AuthContext);
+  const { userData, setUserData } = useContext(AuthContext);
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId:
       "797420240512-up70g52d0r54rh9hehm5k4ttc4bsslos.apps.googleusercontent.com",
@@ -36,7 +38,7 @@ export default function Login() {
       const user = await resp.json();
       console.log("user Details", user);
       setUserInfo(user);
-      // setUserData(user);
+      setUserData(user);
       await Services.setUserAuth(user);
     } catch (error) {
       console.log(error);
