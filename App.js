@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { AuthContext } from "./App/Context/AuthContext";
 import Services from "./App/Shared/Services";
+import { categories } from "./App/Constants";
 
 import Login from "./App/Pages/Login";
 import Home from "./App/Pages/Home";
@@ -23,7 +24,7 @@ export default function App() {
   return (
     <View>
       <AuthContext.Provider value={{ userData, setUserData }}>
-        {userData ? <Home /> : <Login />}
+        {userData ? <Home categories={categories} /> : <Login />}
       </AuthContext.Provider>
     </View>
   );
